@@ -1,16 +1,17 @@
 
 const VC_APIKey = process.env.VC_API;
 
-async function getWeather(location) {
-
-    const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/New%20York?unitGroup=us&include=days%2Chours%2Ccurrent%2Calerts&key=${VC_APIKey}&contentType=json`)
+export default async function getWeather(location) {
+    
     try {
-        console.log(response);
+    const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=us&include=days%2Chours%2Ccurrent%2Calerts&key=${VC_APIKey}&contentType=json`)
+    console.log('Successfully fetched');
+    console.log(`Returning promise`);
+    return response.json();
     } catch (error) {
         console.log('Failed to get response')
         console.log(error);
     }
 
-}
 
-export { getWeather };
+}
