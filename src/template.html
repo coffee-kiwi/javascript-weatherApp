@@ -4,21 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
+    <!-- <link rel="stylesheet" href="./styles.css"> -->
   </head>
   <body>
     <header>
-      <h1>Welcome to the weather app</h1>
+      <h1>Welcome to the wonderful weather app</h1>
     </header>
 
     <main>
       <section id="sidebar">
+        <h1 class="sidebar-title">Seach a location below:</h1>
         <div class="form">
           <form id="search-form" role="search">
-            <label for="search-box">Location:</label>
-            <input type="search"
-                    id="search-box"
-                    placeholder="New York"
-            >
+            <div>
+              <label for="search-box">Location:</label>
+              <input type="search"
+                      id="search-box"
+                      placeholder="New York"
+              >
+            </div>
             <button id="searchBtn">Search Weather</button>
           </form>
           <button type="button" id="metricBtn">Toggle: Fareinheit</button>
@@ -26,8 +30,9 @@
       </section>
       
       <section class="display-section">
+        <div id="alertDiv"></div>
         <div id="content"></div>
-
+        <div id="icons"></div>
       </section>
 
     </main>

@@ -1,3 +1,4 @@
+import './styles.css';
 import getWeather from './getWeather.js';
 import displayData from './displayData.js';
 import toggleMetric from './toggleMetric.js';

@@ -2,12 +2,12 @@ import convertToCelsius from './conversion.js'
 
 export default function displayData(dataJson, metric) {
 
-    const contentContainer = document.getElementById("content")
+    const contentContainer = document.getElementById("content");
     contentContainer.textContent = "";
-    console.log('Data includes:');
-    console.log(dataJson);
-    console.log('----------------------');
-    console.log(dataJson.alerts);
+    contentContainer.classList.add("card")
+    const alertContainer = document.getElementById("alertDiv");
+    alertContainer.textContent = "";
+    alertContainer.classList.add("card");
 
     const conditionsTitle = document.createElement("h2");
     conditionsTitle.textContent = `Current conditions in ${dataJson.address} are:`
@@ -44,7 +44,7 @@ export default function displayData(dataJson, metric) {
     if (dataJson.alerts.length > 0) {
         const alertTitle = document.createElement("h2");
         alertTitle.textContent = "Alerts"
-        contentContainer.appendChild(alertTitle);
+        alertContainer.appendChild(alertTitle);
 
         dataJson.alerts.forEach(function(alert) {
         console.log(alert.event);
@@ -52,8 +52,8 @@ export default function displayData(dataJson, metric) {
         alertTitle.textContent = alert.event;
         const alertMessage = document.createElement("p");
         alertMessage.textContent = alert.headline;
-        contentContainer.appendChild(alertTitle);
-        contentContainer.appendChild(alertMessage);
+        alertContainer.appendChild(alertTitle);
+        alertContainer.appendChild(alertMessage);
     });
     } else {
         const alertTitle = document.createElement("h3");
