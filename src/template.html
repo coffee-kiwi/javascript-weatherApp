@@ -3,9 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Weather App</title>
   </head>
   <body>
-    <h1>test</h1>
+    <header>
+      <h1>Welcome to the weather app</h1>
+    </header>
+
+    <main>
+      <section id="sidebar">
+        <div class="form">
+          <form id="search-form" role="search">
+            <label for="search-box">Location:</label>
+            <input type="search"
+                    id="search-box"
+                    placeholder="New York"
+            >
+            <button>Search Weather</button>
+          </form>
+
+        </div>
+      </section>
+      
+      <section id="display">
+        <div id="content"></div>
+
+      </section>
+
+    </main>
+   
   </body>
 </html>
