@@ -1,3 +1,4 @@
+import convertToCelsius from './convertToCelsius.js'
 
 export default function displayData(dataJson, metric) {
 
@@ -25,8 +26,11 @@ export default function displayData(dataJson, metric) {
     }
     
     const temperature = document.createElement("li");
-    temperature.id = "temp"
-    temperature.textContent = `Current temperature is about ${dataJson.currentConditions.temp}° ${metric}`
+    let tempValue = dataJson.currentConditions.temp;
+    if (metric === "celsius") {
+        tempValue = convertToCelsius(tempValue)
+    } 
+    temperature.textContent = `Current temperature is about ${tempValue}° ${metric}`
 
     weatherData.appendChild(conditions);
     weatherData.appendChild(humidity);
@@ -54,6 +58,4 @@ export default function displayData(dataJson, metric) {
         const alertTitle = document.createElement("h3");
         alertTitle.textContent = "There are no weather alerts currently."
     }
-
-    // const alerts = document.createElement("h2");
 }
