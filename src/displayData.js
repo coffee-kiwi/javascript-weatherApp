@@ -1,6 +1,6 @@
 import convertToCelsius from './conversion.js'
 
-export function displayData(dataJson, metric) {
+export default function displayData(dataJson, metric) {
 
     const contentContainer = document.getElementById("content")
     contentContainer.textContent = "";

@@ -1,5 +1,5 @@
 import getWeather from './getWeather.js';
-import { displayData } from './displayData.js';
+import displayData from './displayData.js';
 import toggleMetric from './toggleMetric.js';
 import convertToCelsius from './conversion.js';
 
