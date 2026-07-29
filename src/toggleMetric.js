@@ -1,8 +1,8 @@
 
 export default function toggleMetric(currentMetric) {
-    if (currentMetric === "farenheit") {
-        return "celsius";
+    if (currentMetric === "Farenheit") {
+        return "Celsius";
     } else {
-        return "farenheit";
+        return "Farenheit";
     }
 }

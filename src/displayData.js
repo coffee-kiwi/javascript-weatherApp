@@ -1,6 +1,6 @@
-import convertToCelsius from './convertToCelsius.js'
+import convertToCelsius from './conversion.js'
 
-export default function displayData(dataJson, metric) {
+export function displayData(dataJson, metric) {
 
     const contentContainer = document.getElementById("content")
     contentContainer.textContent = "";
@@ -26,8 +26,9 @@ export default function displayData(dataJson, metric) {
     }
     
     const temperature = document.createElement("li");
+    temperature.id = "tempItem"
     let tempValue = dataJson.currentConditions.temp;
-    if (metric === "celsius") {
+    if (metric === "Celsius") {
         tempValue = convertToCelsius(tempValue)
     } 
     temperature.textContent = `Current temperature is about ${tempValue}° ${metric}`

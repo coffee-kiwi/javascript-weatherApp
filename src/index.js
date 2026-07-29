@@ -1,6 +1,7 @@
 import getWeather from './getWeather.js';
-import displayData from './displayData.js';
+import { displayData } from './displayData.js';
 import toggleMetric from './toggleMetric.js';
+import convertToCelsius from './conversion.js';
 
 if (process.env.NODE_ENV !== 'production') {
   console.log('Looks like we are in development mode!');
@@ -11,34 +12,32 @@ const contentContainer = document.getElementById('content');
 const searchForm = document.getElementById('search-form');
 const searchInput = document.getElementById('search-box');
 let searchLocation = '';
-let metric = 'farenheit'
-// Event listener for search button
+let metric = 'Farenheit'
+let searchedData;
 
-function searchWeather() {
-    searchLocation = searchInput.value.trim();
-    getWeather(searchLocation).then((dataJson) => {
-    displayData(dataJson, metric);
-      });
-}
+
 searchForm.addEventListener('submit', (event) => {
   event.preventDefault();
-  searchWeather()
-  // searchLocation = searchInput.value.trim();
-  // getWeather(searchLocation).then((dataJson) => {
-  //   // console.log(dataJson.currentConditions);
-  //   console.log('Trying displayData function:')
-  //   displayData(dataJson, metric);
-
-  // const weatherData = processData(weatherPromise);
-
+  searchLocation = searchInput.value.trim();
+    getWeather(searchLocation).then((dataJson) => {
+      searchedData = dataJson;
+      displayData(dataJson, metric);
+  });
 });
 
 toggleMetricBtn.addEventListener('click', (event) => {
-  const oldMetric = metric;
   metric = toggleMetric(metric);
-  toggleMetricBtn.textContent = `Metric: ${metric}`;
-  searchWeather();
+  toggleMetricBtn.textContent = `Toggle: ${metric}`;
+  const temperature = document.getElementById("tempItem");
+  if (temperature !== null) {
+    let tempValue = searchedData.currentConditions.temp;
+    if (metric === "Celsius") {
+      tempValue = convertToCelsius(tempValue)
+    } 
+    temperature.textContent = `Current temperature is about ${tempValue}° ${metric}`
+  }
 });
+
 
 
 
