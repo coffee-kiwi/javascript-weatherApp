@@ -43,6 +43,23 @@ header {
     padding: 24px;
 }
 
+footer {
+    background-color: lightgrey;
+}
+.attributions {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 4px;
+    column-rule: 1px solid lightgrey;
+    row-rule: 1px solid lightgrey;
+    place-items: center;
+    font-size: 0.9rem;;
+}
+
+.attributions a {
+    padding: 4px;
+}
+
 main {
     display: grid;
     grid-template-columns: 1fr 2fr;
