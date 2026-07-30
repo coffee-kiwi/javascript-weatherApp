@@ -69,32 +69,6 @@ export default function displayData(dataJson, metric) {
             break;
     }
 
-    // const weatherData = document.createElement("ul");
-    // const conditions = document.createElement("li");
-    // conditions.textContent = `Current weather: ${dataJson.currentConditions.conditions}`
-    // const humidity = document.createElement("li");
-    // humidity.textContent = `Humidity: ${dataJson.currentConditions.humidity}%`
-    // const chanceOfPrecipitation = document.createElement("li");
-    // if (dataJson.currentConditions.preciptype !== null) {
-    //     chanceOfPrecipitation.textContent = `Chance of ${dataJson.currentConditions.preciptype[0]}: ${dataJson.currentConditions.precipprob}%`
-    // } else {
-    //     chanceOfPrecipitation.textContent = `Chance of rain: ${dataJson.currentConditions.precipprob}%`
-    // }
-    
-    // const temperature = document.createElement("li");
-    // temperature.id = "tempItem"
-    // let tempValue = dataJson.currentConditions.temp;
-    // if (metric === "Celsius") {
-    //     tempValue = convertToCelsius(tempValue)
-    // } 
-    // temperature.textContent = `Current temperature is about ${tempValue}° ${metric}`
-
-    // weatherData.appendChild(conditions);
-    // weatherData.appendChild(humidity);
-    // weatherData.appendChild(chanceOfPrecipitation);
-    // weatherData.appendChild(temperature);
-    // contentContainer.appendChild(weatherData);
-
     if (dataJson.alerts.length > 0) {
         const alertTitle = document.createElement("h2");
         alertTitle.textContent = "Alerts"
