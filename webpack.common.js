@@ -2,6 +2,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import Dotenv from 'dotenv-webpack';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -16,6 +17,11 @@ export default {
       template: "./src/template.html",
     }),
     new Dotenv(),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: 'src/404.html', to: '404.html' }
+      ]
+    })
   ],
   devtool: "eval-source-map",
   devServer: {
@@ -25,6 +31,7 @@ export default {
     filename: "main.bundle.js",
     path: path.resolve(__dirname, "dist"),
     clean: true,
+    publicPath: '/'
   },
   module: {
     rules: [
