@@ -1,5 +1,10 @@
 import convertToCelsius from './conversion.js';
 import partlyCloudyImg from './assets/partlyCloudy.png';
+import sunnyImg from './assets/sunny.png';
+import cloudyImg from './assets/cloudy.png';
+import rainyImg from './assets/rain.png';
+import snowyImg from './assets/snowy.png';
+import thunderstormImg from './assets/thunder.png';
 
 export default function displayData(dataJson, metric) {
 
@@ -50,24 +55,40 @@ export default function displayData(dataJson, metric) {
     table.append(trHeader, trBody);
     contentContainer.appendChild(table);
 
-    const image = document.createElement("img");
     const imageContainer = document.getElementById("icons");
+    imageContainer.textContent = "";
     // Erase current image via visibility or textContent?
-    switch (currentWeather) {
-        case "sunny":
-            image.src = './assets/images/sunny.png';
-            imageContainer.appendChild(image);
-            break;
-        
-        case "Partially cloudy":
-            image.src = partlyCloudyImg;
-            imageContainer.appendChild(image);
-            break;
-    
-        default:
-            imageContainer.classList.add("invisible");
-            break;
+    if (currentWeather.includes("Rain")) {
+        const image = document.createElement("img");
+        image.src = rainyImg;
+        imageContainer.appendChild(image);
     }
+    if (currentWeather.includes("Clear") || currentWeather.includes("Sunny")) {
+        const image = document.createElement("img");
+        image.src = sunnyImg;
+        imageContainer.appendChild(image);
+    }
+    if (currentWeather.includes("Partially cloudy")) {
+        const image = document.createElement("img");
+        image.src = partlyCloudyImg;
+        imageContainer.appendChild(image);
+    }    
+    if (currentWeather.includes("Cloudy") || currentWeather.includes("Overcast")) {
+        const image = document.createElement("img");
+        image.src = cloudyImg;
+        imageContainer.appendChild(image);
+    }
+    if (currentWeather.includes("Snow")) {
+        const image = document.createElement("img");
+        image.src = snowyImg;
+        imageContainer.appendChild(image);
+    }
+        if (currentWeather.includes("Storm")) {
+        const image = document.createElement("img");
+        image.src = thunderstormImg;
+        imageContainer.appendChild(image);
+    }
+
 
     if (dataJson.alerts.length > 0) {
         const alertTitle = document.createElement("h2");

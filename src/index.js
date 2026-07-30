@@ -4,11 +4,6 @@ import displayData from './displayData.js';
 import toggleMetric from './toggleMetric.js';
 import convertToCelsius from './conversion.js';
 
-// import Icon from './assets/partlyCloudy.png';
-
-if (process.env.NODE_ENV !== 'production') {
-  console.log('Looks like we are in development mode!');
-}
 const toggleMetricBtn = document.getElementById('metricBtn');
 const contentContainer = document.getElementById('content');
 
@@ -17,14 +12,6 @@ const searchInput = document.getElementById('search-box');
 let searchLocation = '';
 let metric = 'Farenheit'
 let searchedData;
-
-// Test using picture
-// const myIcon = new Image();
-// myIcon.src = Icon;
-
-// document.getElementById("icons").appendChild(myIcon);
-
-
 
 searchForm.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -37,7 +24,6 @@ searchForm.addEventListener('submit', (event) => {
 
 toggleMetricBtn.addEventListener('click', (event) => {
   metric = toggleMetric(metric);
-  toggleMetricBtn.textContent = `Toggle: ${metric}`;
   const temperature = document.getElementById("tempItem");
   if (temperature !== null) {
     let tempValue = searchedData.currentConditions.temp;
