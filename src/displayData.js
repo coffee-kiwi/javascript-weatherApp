@@ -20,7 +20,7 @@ export default function displayData(dataJson, metric) {
     contentContainer.appendChild(conditionsTitle);
     const precipType = dataJson.currentConditions.preciptype;
     let tableHeaders;
-    if (precipType !== null) {
+    if (precipType === null) {
         tableHeaders = [ "Weather", "Temperature", "Humidity", "Chance of rain"];
     } else {
         tableHeaders = [ "Weather", "Temperature", "Humidity", `Chance of ${precipType}`];

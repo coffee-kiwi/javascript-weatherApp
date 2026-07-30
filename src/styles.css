@@ -4,8 +4,9 @@
     box-sizing: border-box;
 }
 
+
 .invisible {
-    visibility: none;
+    visibility: hidden;
 }
 
 button {
@@ -16,6 +17,13 @@ button {
     border-radius: 8px;
     border: 1px solid lightgrey;
     width: 80%;
+    
+    cursor: pointer;
+    transition: transform 0.25s ease;
+}
+
+button:active {
+    transform: scale(0.9);
 }
 
 input {
@@ -60,6 +68,47 @@ main {
     gap: 16px;
     justify-items: center;
 }
+
+/* Loading spinner */
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner-arc {
+  animation: rotate-container 2s linear infinite;
+  width: 50px;
+  height: 50px;
+}
+.spinner-arc .path {
+  stroke: #3498db;
+  stroke-linecap: round;
+  animation: dash-animation 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate-container {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash-animation {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
+
+/* End loading spinner styling */
 
 .display-section {
     display: grid;

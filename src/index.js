@@ -9,12 +9,14 @@ const contentContainer = document.getElementById('content');
 
 const searchForm = document.getElementById('search-form');
 const searchInput = document.getElementById('search-box');
+const loadingSVG = document.getElementById('loading');
 let searchLocation = '';
 let metric = 'Farenheit'
 let searchedData;
 
 searchForm.addEventListener('submit', (event) => {
   event.preventDefault();
+  loading.classList.remove('invisible')
   searchLocation = searchInput.value.trim();
     getWeather(searchLocation).then((dataJson) => {
       searchedData = dataJson;
