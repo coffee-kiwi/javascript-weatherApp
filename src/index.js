@@ -4,6 +4,8 @@ import displayData from './displayData.js';
 import toggleMetric from './toggleMetric.js';
 import convertToCelsius from './conversion.js';
 
+// import Icon from './assets/partlyCloudy.png';
+
 if (process.env.NODE_ENV !== 'production') {
   console.log('Looks like we are in development mode!');
 }
@@ -15,6 +17,13 @@ const searchInput = document.getElementById('search-box');
 let searchLocation = '';
 let metric = 'Farenheit'
 let searchedData;
+
+// Test using picture
+// const myIcon = new Image();
+// myIcon.src = Icon;
+
+// document.getElementById("icons").appendChild(myIcon);
+
 
 
 searchForm.addEventListener('submit', (event) => {
@@ -35,7 +44,7 @@ toggleMetricBtn.addEventListener('click', (event) => {
     if (metric === "Celsius") {
       tempValue = convertToCelsius(tempValue)
     } 
-    temperature.textContent = `Current temperature is about ${tempValue}° ${metric}`
+    temperature.textContent = `${tempValue}° ${metric}`
   }
 });
 

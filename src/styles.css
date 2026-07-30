@@ -4,8 +4,25 @@
     box-sizing: border-box;
 }
 
-ul {
-    list-style-type: none;
+.invisible {
+    visibility: none;
+}
+
+button {
+    padding: 8px;
+    color: white;
+    font-size: 1rem;
+    background-color: #0095fd;
+    border-radius: 8px;
+    border: 1px solid lightgrey;
+    width: 80%;
+}
+
+input {
+    font-size: 1rem;
+}
+label {
+    font-size: 1.2rem;
 }
 
 header {
@@ -19,7 +36,7 @@ header {
 main {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    height: 70vh;
+    height: 80vh;
 }
 
 #sidebar {
@@ -27,17 +44,20 @@ main {
     flex-direction: column;
     gap: 24px;
     align-items: center;
+    background-color: lightgrey;
 }
 
-#sidebar h1 {
+.sidebar-title {
     font-size: 1.5rem;
+    padding-top: 24px;
+
 }
 
 .form,
 #search-form {
     display: grid;
     gap: 16px;
-    background-color: lightgrey;
+    justify-items: center;
 }
 
 .display-section {
@@ -57,6 +77,16 @@ main {
     box-shadow: 2px 2px 2px lightgrey;
 }
 
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid lightgrey;
+    padding: 8px;
+}
+
 ul {
     display: grid;
 }
@@ -65,8 +95,4 @@ ul {
 #sidebar,
 .display-section {
     border: solid 0.5px lightgray;
-}
-
-.display-section {
-
 }
